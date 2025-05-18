@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import theme from './styles/theme';
 import GlobalStyle from './styles/GlobalStyle';
-
+import ListPage from "./pages/ListPage.jsx";
 function App() {
     const router = createBrowserRouter([
         {
@@ -10,7 +10,7 @@ function App() {
             children: [
                 {
                     index: true,
-                    element:<div>초기 세팅 완료</div>,
+                    element:<ListPage/>,
                 },
             ],
         },
