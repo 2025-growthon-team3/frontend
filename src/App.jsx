@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
+import SignUpPage from "./pages/LoginPage/SignUpPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
         {
           path: "select",
           element: <TargetSelectPage />,
+        },
+        {
+          path: "signup",
+          element: <SignUpPage />,
         },
       ],
     },

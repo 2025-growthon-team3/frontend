@@ -1,8 +1,8 @@
 import React from "react";
 import * as L from "./LoginButton.style";
 
-const LoginButton = ({ children }) => {
-  return <L.Container>{children}</L.Container>;
+const LoginButton = ({ children, color }) => {
+  return <L.Container color={color}>{children}</L.Container>;
 };
 
 export default LoginButton;

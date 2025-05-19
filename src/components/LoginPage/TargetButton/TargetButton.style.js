@@ -14,8 +14,8 @@ const getBackgroundColors = (title) => {
 };
 
 export const Container = styled.div`
-  width: 189px;
-  height: 189px;
+  width: ${({ size }) => size || "189px"};
+  height: ${({ size }) => size || "189px"};
   border-radius: 50%;
 
   background-color: #fff;

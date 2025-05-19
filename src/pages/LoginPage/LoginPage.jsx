@@ -19,7 +19,7 @@ const LoginPage = () => {
         <TextField>Password</TextField>
         <L.ForgetPassword>Forget Password ?</L.ForgetPassword>
       </L.TextFieldContainer>
-      <LoginButton>Login</LoginButton>
+      <LoginButton color="orange">Login</LoginButton>
       <Divider>Or sign up with</Divider>
       <L.KakaoButton>
         <img src={kakao} alt="kakao" />
