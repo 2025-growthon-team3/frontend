@@ -6,8 +6,9 @@ import logo from "../../assets/images/logo.png";
 import kakao from "../../assets/images/logo_kakao.png";
 
 // component
-import TextField from "../../components/LoginPage/TextField";
-import LoginButton from "../../components/LoginPage/LoginButton";
+import TextField from "../../components/LoginPage/TextField/TextField";
+import LoginButton from "../../components/LoginPage/LoginButton/LoginButton";
+import Divider from "../../components/LoginPage/Divider/Divider";
 
 const LoginPage = () => {
   return (
@@ -19,11 +20,7 @@ const LoginPage = () => {
         <L.ForgetPassword>Forget Password ?</L.ForgetPassword>
       </L.TextFieldContainer>
       <LoginButton>Login</LoginButton>
-      <L.Devider>
-        <L.Line />
-        Or sign up with
-        <L.Line />
-      </L.Devider>
+      <Divider>Or sign up with</Divider>
       <L.KakaoButton>
         <img src={kakao} alt="kakao" />
       </L.KakaoButton>

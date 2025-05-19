@@ -34,24 +34,6 @@ export const ForgetPassword = styled.button`
   cursor: pointer;
 `;
 
-export const Devider = styled.div`
-  color: #757171;
-  font-family: "Pretendard Variable";
-  font-size: 12px;
-  font-weight: 400;
-
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin: 77px 0 23px 0;
-`;
-
-export const Line = styled.div`
-  width: 105px;
-  height: 0.6px;
-  background-color: #a39797;
-`;
-
 export const KakaoButton = styled.button`
   all: unset;
 

@@ -4,6 +4,7 @@ import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
+import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
         {
           path: "login",
           element: <LoginPage />,
+        },
+        {
+          path: "select",
+          element: <TargetSelectPage />,
         },
       ],
     },
