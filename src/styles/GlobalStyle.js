@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'Pretendard Variable';
+        src: url('/src/assets/fonts/PretendardVariable.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+    }
+
     * {
         box-sizing: border-box;
     }
