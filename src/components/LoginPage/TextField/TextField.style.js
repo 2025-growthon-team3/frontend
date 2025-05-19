@@ -21,3 +21,8 @@ export const Container = styled.div`
   align-items: center;
   padding: 0 18px;
 `;
+
+export const TextField = styled.input`
+  all: unset;
+  color: #000;
+`;
