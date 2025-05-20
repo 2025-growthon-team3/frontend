@@ -1,13 +1,19 @@
-<VolunteerMyPage>
-    <ProfileSection>
-        <ProfileImage />
-        <UserName>이지연</UserName>
-    </ProfileSection>
+import React from "react";
+import * as S from "./VolunteerMyPage.styles";
 
-    <MenuCard>
-        <MenuButton>봉사 내역</MenuButton>
-        <MenuButton>신청 현황</MenuButton>
-    </MenuCard>
+const VolunteerMyPage = () => {
+    return (
+        <S.PageWrapper>
+            <S.ProfileSection>
+                <S.ProfileImage src="https://via.placeholder.com/100" alt="프로필" />
+                <S.UserName>이지연</S.UserName>
+            </S.ProfileSection>
+            <S.MenuCard>
+                <S.MenuButton>봉사 내역</S.MenuButton>
+                <S.MenuButton>신청 현황</S.MenuButton>
+            </S.MenuCard>
+        </S.PageWrapper>
+    );
+};
 
-    <FloatingBadge>김이</FloatingBadge> {/* 설명해주면 더 구체화 가능 */}
-</VolunteerMyPage>
+export default VolunteerMyPage;

@@ -11,6 +11,8 @@ import UnmatchedVolunteerList from "./components/Listpage/UnmatchedVolunteerList
 import ListPagePersonal from "./pages/ListPage/ListPagePersonal.jsx";
 import ListPageInstitution from "./pages/ListPage/ListPageInstitution.jsx";
 import TitleBox from "./components/TitleBox/TitleBox.jsx";
+import VolunteerCardBase from "./components/Listpage/VolunteerCardBase/VolunteerCardBase.jsx";
+import VolunteerMyPage from "./pages/MyPage/Volunteer/VolunteerMyPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,7 +21,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <ApplicationPage/>,
+          element: <VolunteerMyPage/>,
         }
 
         // ,{
