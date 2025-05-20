@@ -1,7 +1,7 @@
 const theme = {
     sizes: {
-        width: "300px",
-        height: "610px",
+        width: "393px",
+        height: "852px",
     },
     colors: {
         orange: "#FFA622",

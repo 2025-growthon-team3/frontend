@@ -1,28 +1,53 @@
 import React, { useEffect, useState } from "react";
 import VolunteerCard from "./VolunteerCard";
 import volunteersData from "../../mock/volunteers";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const VolunteerList = () => {
-    const [volunteers, setVolunteers] = useState([]);
+    const [displayList, setDisplayList] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [expandedId, setExpandedId] = useState(null);
+
+    const ITEMS_PER_LOAD = 4;
 
     useEffect(() => {
-        // 초기 로딩 시 mock 데이터 설정
-        setVolunteers(volunteersData);
+        // 초기 로딩 시 일부 데이터만 보여줌
+        setDisplayList(volunteersData.slice(0, ITEMS_PER_LOAD));
     }, []);
 
-    return (
-        <>
+    const loadMore = () => {
+        const currentLength = displayList.length;
+        const nextItems = volunteersData.slice(currentLength, currentLength + ITEMS_PER_LOAD);
 
-            {volunteers.map((v) => (
+        if (nextItems.length === 0) {
+            setHasMore(false);
+            return;
+        }
+
+        setDisplayList([...displayList, ...nextItems]);
+    };
+
+    const handleCardClick = (id) => {
+        setExpandedId((prev) => (prev === id ? null : id)); // 토글
+    };
+
+    return (
+        <InfiniteScroll
+            dataLength={displayList.length}
+            next={loadMore}
+            hasMore={hasMore}
+            loader={<h4 style={{ textAlign: "center" }}>로딩 중...</h4>}
+            scrollableTarget="scrollableDiv"
+        >
+            {displayList.map((v) => (
                 <VolunteerCard
                     key={v.id}
-                    id={v.id}
-                    name={v.name}
-                    profileImg={v.profileImg}
+                    {...v}
+                    isExpanded={v.id === expandedId}
+                    onClick={() => handleCardClick(v.id)}
                 />
             ))}
-        </>
-
+        </InfiniteScroll>
     );
 };
 

@@ -26,7 +26,7 @@ const PageContainer = styled.div`
 `;
 
 const TopSection = styled.div`
-    flex: 0 0 18%;
+    flex: 0 0 17%;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
