@@ -7,6 +7,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
+import VolunteerList from "./components/Listpage/VolunteerList/VolunteerList.jsx";
+import ListPage from "./pages/ListPage/ListPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,24 +17,25 @@ function App() {
       children: [
         {
           index: true,
-          element: <div>초기 세팅 완료</div>,
-        },
-        {
-          path: "login",
-          element: <LoginPage />,
-        },
-        {
-          path: "select",
-          element: <TargetSelectPage />,
-        },
-        {
-          path: "signup",
-          element: <SignUpPage />,
-        },
-        {
-          path: "application",
-          element: <ApplicationPage />,
-        },
+          element: <ListPage/>,
+        }
+
+        // ,{
+        //   path: "login",
+        //   element: <LoginPage />,
+        // },
+        // {
+        //   path: "select",
+        //   element: <TargetSelectPage />,
+        // },
+        // {
+        //   path: "signup",
+        //   element: <SignUpPage />,
+        // },
+        // {
+        //   path: "application",
+        //   element: <ApplicationPage />,
+        // },
       ],
     },
   ]);

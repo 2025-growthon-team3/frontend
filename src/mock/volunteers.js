@@ -4,7 +4,7 @@ const volunteers = [
         name: "김민서",
         gender: "여",
         age: 23,
-        need: "어린이 돌봄 지원",
+        need: "어린이 돌봄 지원저소득층 도시락 배달저소득층 도시락 배달저소득층 도시락 배달저소득층 도시락 배달",
         tag: "아이돌봄",
         profileImg: "/img/val.jpg",
     },

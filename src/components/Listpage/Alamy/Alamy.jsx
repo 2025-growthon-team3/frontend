@@ -8,14 +8,11 @@ const Alamy=()=>{
 }
 export const AlamBox=styled.div`
     display: flex;
-    width:120px;
     padding: 10px;
     margin:16px;
-    margin-bottom: 30px;
-    background-color:${({ theme }) => theme.colors.orange};
-    border-radius: 15px;
-    font-size:12px;
-    color: white;
+    font-size:20px;
+    font-weight: bold;
+    font-family: 'Pretendard Variable';
     
 `
 export default Alamy

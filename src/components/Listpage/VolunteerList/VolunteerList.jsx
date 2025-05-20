@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import VolunteerCard from "./VolunteerCard";
-import volunteersData from "../../mock/volunteers";
+import VolunteerCard from "../VolunteerCard/VolunteerCard.jsx";
+import volunteersData from "../../../mock/volunteers.js";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const VolunteerList = () => {
@@ -8,7 +8,7 @@ const VolunteerList = () => {
     const [hasMore, setHasMore] = useState(true);
     const [expandedId, setExpandedId] = useState(null);
 
-    const ITEMS_PER_LOAD = 4;
+    const ITEMS_PER_LOAD = 7;
 
     useEffect(() => {
         // 초기 로딩 시 일부 데이터만 보여줌
