@@ -7,8 +7,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
-import VolunteerList from "./components/Listpage/VolunteerList/VolunteerList.jsx";
-import ListPage from "./pages/ListPage/ListPage.jsx";
+import UnmatchedVolunteerList from "./components/Listpage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
+import ListPagePersonal from "./pages/ListPage/ListPagePersonal.jsx";
+import ListPageInstitution from "./pages/ListPage/ListPageInstitution.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,7 +18,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <ListPage/>,
+          element: <ListPageInstitution/>,
         }
 
         // ,{

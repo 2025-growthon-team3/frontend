@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import VolunteerCard from "../VolunteerCard/VolunteerCard.jsx";
-import volunteersData from "../../../mock/volunteers.js";
+import { volunteers } from "../../../mock/volunteers.js";
 import InfiniteScroll from "react-infinite-scroll-component";
+import UnmatchedVolunteerCard from "../UnmatchedVolunteerCard/UnmatchedVolunteerCard.jsx";
 
-const VolunteerList = () => {
+const UnmatchedVolunteerList = () => {
     const [displayList, setDisplayList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [expandedId, setExpandedId] = useState(null);
@@ -11,13 +11,12 @@ const VolunteerList = () => {
     const ITEMS_PER_LOAD = 7;
 
     useEffect(() => {
-        // 초기 로딩 시 일부 데이터만 보여줌
-        setDisplayList(volunteersData.slice(0, ITEMS_PER_LOAD));
+        setDisplayList(volunteers.slice(0, ITEMS_PER_LOAD));
     }, []);
 
     const loadMore = () => {
         const currentLength = displayList.length;
-        const nextItems = volunteersData.slice(currentLength, currentLength + ITEMS_PER_LOAD);
+        const nextItems = volunteers.slice(currentLength, currentLength + ITEMS_PER_LOAD);
 
         if (nextItems.length === 0) {
             setHasMore(false);
@@ -28,7 +27,7 @@ const VolunteerList = () => {
     };
 
     const handleCardClick = (id) => {
-        setExpandedId((prev) => (prev === id ? null : id)); // 토글
+        setExpandedId((prev) => (prev === id ? null : id));
     };
 
     return (
@@ -40,15 +39,15 @@ const VolunteerList = () => {
             scrollableTarget="scrollableDiv"
         >
             {displayList.map((v) => (
-                <VolunteerCard
-                    key={v.id}
+                <UnmatchedVolunteerCard
+                    key={v.helpeeId}
                     {...v}
-                    isExpanded={v.id === expandedId}
-                    onClick={() => handleCardClick(v.id)}
+                    isExpanded={v.helpeeId === expandedId}
+                    onClick={() => handleCardClick(v.helpeeId)}
                 />
             ))}
         </InfiniteScroll>
     );
 };
 
-export default VolunteerList;
+export default UnmatchedVolunteerList;

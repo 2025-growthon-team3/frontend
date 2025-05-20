@@ -1,11 +1,12 @@
 import styled from "styled-components";
-const Alamy=()=>{
-    return(
+const Alamy = ({ label }) => {
+    return (
         <AlamBox>
-            도움 알림이
+            {label}
         </AlamBox>
-    )
-}
+    );
+};
+
 export const AlamBox=styled.div`
     display: flex;
     padding: 10px;

@@ -5,8 +5,7 @@ export const VContainer = styled.div`
     margin: 16px auto;
     display: flex;
     align-items: flex-start;
-    background-color: ${({ $expanded }) =>
-            $expanded ? "#FFC875" : "#ffffff"};
+    background-color: ${({ $bgColor }) => $bgColor || "#ffffff"};
     border-radius: 28px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;

@@ -1,8 +1,8 @@
-import VolunteerList from "../../components/Listpage/VolunteerList/VolunteerList.jsx";
+import UnmatchedVolunteerList from "../../components/Listpage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
 import Alamy from "../../components/Listpage/Alamy/Alamy.jsx";
-import * as L from './ListPage.styles.js'
+import * as L from './ListPagePersonal.styles.js'
 
-const ListPage = () => {
+const ListPagePersonal = () => {
     return (
         <L.PageContainer>
             <L.TopSection>
@@ -10,15 +10,15 @@ const ListPage = () => {
             </L.TopSection>
             <L.BottomSection>
                 <L.AlamyWrapper>
-                    <Alamy />
+                    <Alamy label={"도움 알림이"} />
                 </L.AlamyWrapper>
                 <L.ScrollableVolunteerList id="scrollableDiv">
-                    <VolunteerList />
+                    <UnmatchedVolunteerList />
                 </L.ScrollableVolunteerList>
             </L.BottomSection>
         </L.PageContainer>
     );
 };
 
-export default ListPage;
+export default ListPagePersonal;
 
