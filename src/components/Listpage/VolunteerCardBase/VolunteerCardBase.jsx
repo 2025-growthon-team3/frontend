@@ -3,7 +3,8 @@ import {
     VImg,
     VInfo,
     VName,
-    VSubInfo
+    VSubInfo,
+
 } from "./VolunteerCardBase.styles.js";
 
 const VolunteerCardBase = ({ name, age, gender, helpRequest, onClick, isExpanded, bgColor = "#ffffff", children }) => {
@@ -14,7 +15,9 @@ const VolunteerCardBase = ({ name, age, gender, helpRequest, onClick, isExpanded
                 <VName>{name}</VName>
                 <VSubInfo>{gender === "female" ? "여성" : "남성"} / {age}세</VSubInfo>
                 <VSubInfo>{helpRequest}</VSubInfo>
-                {children}
+
+                    {children}
+
             </VInfo>
         </VContainer>
     );

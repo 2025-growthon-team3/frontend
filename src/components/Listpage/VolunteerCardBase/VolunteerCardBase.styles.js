@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const VContainer = styled.div`
-    width: 85%;
+    width: 90%;
     margin: 16px auto;
     display: flex;
     align-items: flex-start;

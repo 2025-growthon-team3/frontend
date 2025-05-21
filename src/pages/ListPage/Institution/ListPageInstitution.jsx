@@ -1,4 +1,4 @@
-import MatchedVolunteerList from "../../components/Listpage/MatchedVolunteerList/MatchedVolunteerList.jsx";
+import MatchedVolunteerList from "../../../components/Listpage/MatchedVolunteerList/MatchedVolunteerList.jsx";
 import * as I from './ListPageInstitution.styles.js'
 import Alamy from "/src/components/Listpage/Alamy/Alamy.jsx"
 

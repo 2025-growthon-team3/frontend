@@ -5,7 +5,7 @@ export const PageWrapper = styled.div`
     align-items: center;
     position: relative;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.mint};
+    background-color: ${({ theme }) => theme.colors.orange};
     display: flex;
     padding: 0 0 480px 0;
 `;
@@ -13,7 +13,7 @@ export const PageWrapper = styled.div`
 export const Background = styled.div`
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.lightmint};
+    background-color: ${({ theme }) => theme.colors.lightorange78};
     border-radius: 0 0 50px 50px;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,6 @@ export const ProfileSection = styled.div`
   margin-top: 70px;
     font-family: 'Pretendard Variable';
     font-weight: bold;
-    
-    
 `;
 
 export const ProfileImage = styled.img`
@@ -57,10 +55,8 @@ export const MenuCard = styled.div`
 `;
 
 export const MenuButton = styled.div`
-    font-family: 'Pretendard Variable';
-    
-    background-color: ${({ theme }) => theme.colors.lightmint};
-    border-radius: 20px;
+  background-color: #ffe0b2;
+  border-radius: 20px;
     height: 60px;
     padding: 18px;
     margin: 30px auto 0;

@@ -8,11 +8,14 @@ import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
 import UnmatchedVolunteerList from "./components/Listpage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
-import ListPagePersonal from "./pages/ListPage/ListPagePersonal.jsx";
-import ListPageInstitution from "./pages/ListPage/ListPageInstitution.jsx";
+import ListPagePersonal from "./pages/ListPage/Personal/ListPagePersonal.jsx";
+import ListPageInstitution from "./pages/ListPage/Institution/ListPageInstitution.jsx";
 import TitleBox from "./components/TitleBox/TitleBox.jsx";
 import VolunteerCardBase from "./components/Listpage/VolunteerCardBase/VolunteerCardBase.jsx";
-import VolunteerMyPage from "./pages/MyPage/Volunteer/VolunteerMyPage.jsx";
+import DoneVolunteerListPage from "./pages/MyPage/Personal/DoneVolunteerListPage.jsx";
+import ApplyVolunteerListPage from "./pages/MyPage/Personal/ApplyVolunteerListPage.jsx";
+import InstitutionMyPage from "./pages/MyPage/Institution/InstitutionMyPage.jsx";
+import VolunteerMyPage from "./pages/MyPage/Personal/VolunteerMyPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,7 +24,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <VolunteerMyPage/>,
+          element: <VolunteerMyPage />,
         }
 
         // ,{

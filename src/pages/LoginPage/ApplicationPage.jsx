@@ -13,11 +13,11 @@ const ApplicationPage = () => {
           <TextField>이름</TextField>
           <TextField>주민 번호</TextField>
           <TextField>위치</TextField>
-        </A.TextFieldContainer>
         <A.FileField>
           <A.FileFieldTitle>파일 업로드</A.FileFieldTitle>
           <A.FileFieldEx>Ex)주민등록증 / 재직증명서 등</A.FileFieldEx>
         </A.FileField>
+          </A.TextFieldContainer>
         <LoginButton color="orange">신청</LoginButton>
       </A.Background>
     </A.Container>
