@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
+import KakaoRedirection from "./pages/LoginPage/KakaoRedirection";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,6 +21,10 @@ function App() {
         {
           path: "login",
           element: <LoginPage />,
+        },
+        {
+          path: "auth/kakao/callback",
+          element: <KakaoRedirection />,
         },
         {
           path: "select",
