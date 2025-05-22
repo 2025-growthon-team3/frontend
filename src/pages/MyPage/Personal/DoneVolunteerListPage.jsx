@@ -6,7 +6,7 @@ const DoneVolunteerListPage = () => {
     return(
         <D.Container>
             <D.Background>
-                <TitleBox color="orange">봉사 내역</TitleBox>
+                <TitleBox color="orange">신청 현황</TitleBox>
                 <D.ScrollableVolunteerList id="scrollableDiv">
                     <DoneVolunteerList/>
                 </D.ScrollableVolunteerList>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.mint};
+  background-color: ${({ theme }) => theme.colors.mint };
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ export const Background = styled.div`
 export const ScrollableVolunteerList = styled.div`
   flex: 1;
   overflow-y: scroll;
-    padding: 40px 0 70px 0;
+    padding: 60px 0 70px 0;
     width: 85%;
     cursor:default;
     //스크롤바 숨김

@@ -16,6 +16,7 @@ import DoneVolunteerListPage from "./pages/MyPage/Personal/DoneVolunteerListPage
 import ApplyVolunteerListPage from "./pages/MyPage/Personal/ApplyVolunteerListPage.jsx";
 import InstitutionMyPage from "./pages/MyPage/Institution/InstitutionMyPage.jsx";
 import VolunteerMyPage from "./pages/MyPage/Personal/VolunteerMyPage.jsx";
+import HelpeeListPage from "./pages/MyPage/Institution/HelpeeListPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,7 +25,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <VolunteerMyPage />,
+          element: <HelpeeListPage/>,
         }
 
         // ,{

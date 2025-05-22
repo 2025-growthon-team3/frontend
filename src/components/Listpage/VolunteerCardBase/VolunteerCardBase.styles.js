@@ -13,8 +13,7 @@ export const VContainer = styled.div`
     transition: all 0.3s ease;
     line-height: 1.2;
     font-family: 'Pretendard Variable';
-    max-height: ${({ $expanded }) => ($expanded ? "300px" : "80px")};
-    overflow: hidden;
+    max-height: ${({ $expanded }) => ($expanded ? "400px" : "80px")};
 `;
 
 export const VImg = styled.img`
