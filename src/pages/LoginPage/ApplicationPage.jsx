@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as A from "./ApplicationPage.style";
+import { useNavigate } from "react-router-dom";
+
+// component
 import TextField from "../../components/LoginPage/TextField/TextField";
 import TitleBox from "../../components/TitleBox/TitleBox";
 import LoginButton from "../../components/LoginPage/LoginButton/LoginButton";
+import CompleteModal from "../../components/CompleteModal/CompleteModal";
 
 const ApplicationPage = () => {
   const navigate = useNavigate();
@@ -13,6 +16,13 @@ const ApplicationPage = () => {
   const [number, setNumber] = useState("");
   const [location, setLocation] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    navigate("/");
+  };
 
   const handleSubmit = async () => {
     const kakaoId = localStorage.getItem("kakaoId");
@@ -43,7 +53,7 @@ const ApplicationPage = () => {
       if (response.data.success) {
         console.log("신청 완료", response.data.data.accessToken);
         localStorage.setItem("accessToken", response.data.data.accessToken);
-        navigate("/");
+        setIsModalOpen(true);
       } else {
         alert("신청 실패: " + response.data.message);
       }
@@ -95,6 +105,11 @@ const ApplicationPage = () => {
         <LoginButton color="orange" onClick={handleSubmit}>
           신청
         </LoginButton>
+        {isModalOpen && (
+          <CompleteModal onClick={handleModalClose}>
+            회원가입 완료
+          </CompleteModal>
+        )}
       </A.Background>
     </A.Container>
   );
