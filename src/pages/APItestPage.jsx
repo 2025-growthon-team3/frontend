@@ -1,11 +1,11 @@
 // src/pages/TestPage.jsx
 import React from "react";
-import axios from "/src/api/axiosInstance";
+import axiosInstance from "/src/api/axiosInstance";
 
 const TestPage = () => {
     const testPost = async () => {
         try {
-            const res = await axios.post("/api/volunteer/3", {
+            const res = await axiosInstance.post("/volunteer/3", {
                 status: "approved",
             });
             console.log("✅ 응답 결과:", res.data);

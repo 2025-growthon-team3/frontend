@@ -6,16 +6,15 @@ const MatchingList = () => {
     const [displayList, setDisplayList] = useState([]);
 
     useEffect(() => {
-        // 임시 또는 실제 API에 맞춰 수정 필요
         axios.get("/volunteer?status=requested").then((res) => {
-            console.log("✅ 데이터 확인:", res.data);
-            setDisplayList(res.data.data); // ← success 구조라면 이렇게
+            console.log("데이터 확인용:", res.data);
+            setDisplayList(res.data.data);
         });
     }, []);
 
     const handleDecision = async (volunteerId, newStatus) => {
         try {
-            const res = await axios.post(`/volunteer/${volunteerId}`, {
+            const res = await axios.post(`/api/volunteer/${volunteerId}`, {
                 status: newStatus,
             });
 
