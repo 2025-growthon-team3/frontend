@@ -16,7 +16,7 @@ const KakaoRedirection = () => {
       })
       .then((res) => {
         console.log("로그인 성공", res.data);
-        localStorage.setItem("accessToken", res.data.token);
+        localStorage.setItem("kakaoId", res.data.data.user.kakaoId);
         navigate("/select");
       })
       .catch((err) => {

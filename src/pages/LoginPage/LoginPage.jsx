@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as L from "./LoginPage.style";
 
 // image
@@ -19,12 +19,23 @@ const LoginPage = () => {
     window.location.href = link;
   };
 
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <L.Container>
       <L.Logo src={logo} alt="logo" />
       <L.TextFieldContainer>
-        <TextField>ID</TextField>
-        <TextField>Password</TextField>
+        <TextField
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          placeholder="ID"
+        />
+        <TextField
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+        />
         <L.ForgetPassword>Forget Password ?</L.ForgetPassword>
       </L.TextFieldContainer>
       <LoginButton color="orange">Login</LoginButton>
