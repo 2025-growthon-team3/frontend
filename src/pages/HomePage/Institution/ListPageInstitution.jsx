@@ -1,6 +1,6 @@
-import MatchedVolunteerList from "../../../components/Listpage/MatchedVolunteerList/MatchedVolunteerList.jsx";
+import MatchedVolunteerList from "../../../components/HomePage/MatchedVolunteerList/MatchedVolunteerList.jsx";
 import * as I from './ListPageInstitution.styles.js'
-import Alamy from "/src/components/Listpage/Alamy/Alamy.jsx"
+import Alamy from "/src/components/HomePage/Alamy/Alamy.jsx"
 
 const ListPageInstitution = () => {
     return (

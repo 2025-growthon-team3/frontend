@@ -1,5 +1,5 @@
-import UnmatchedVolunteerList from "../../../components/Listpage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
-import Alamy from "../../../components/Listpage/Alamy/Alamy.jsx";
+import UnmatchedVolunteerList from "../../../components/HomePage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
+import Alamy from "../../../components/HomePage/Alamy/Alamy.jsx";
 import * as L from './ListPagePersonal.styles.js'
 
 const ListPagePersonal = () => {

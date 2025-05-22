@@ -47,22 +47,3 @@ export const CenteredTitle = styled.div`
     left: 50%;
     transform: translateX(-50%);
 `;
-
-export const PlusButton = styled.button`
-  margin-left: 40px;
-    position: absolute;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background-color: white;
-  border: none;
-  color: ${({ theme }) => theme.colors.mint};
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;

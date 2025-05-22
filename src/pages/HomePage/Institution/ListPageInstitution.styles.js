@@ -18,6 +18,8 @@ export const BottomSection = styled.div`
     height: calc(83vh - 70px );
     border-radius: 50px;
     padding: 20px 20px 60px 20px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    
 
 `;
 export const AlamyWrapper = styled.div`

@@ -9,15 +9,14 @@ export const  ButtonWrapper = styled.div`
 export const XButton=styled.button`
     width: 50px;
     height: 50px;
-    background-color: #f44336;
-    color: white;
+    background-color: ${({theme})=>theme.colors.lightmint};
+    color:#FF6422;
     font-size: 24px;
     font-weight: bold;
     border: none;
-    border-radius: 50%;
+    border-radius:18px;
     cursor: pointer;
-
-    &:hover {
-        background-color: #d32f2f;
+   &:hover {
+        background-color: ${({theme})=>theme.colors.mint};
     }
 `

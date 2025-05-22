@@ -1,4 +1,4 @@
-import UnmatchedVolunteerList from "../../../components/Listpage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
+import UnmatchedVolunteerList from "../../../components/HomePage/UnmatchedVolunteerList/UnmatchedVolunteerList.jsx";
 import * as I from "./InstitutionMyPage.styles.js"
 import * as S from "../Personal/VolunteerMyPage.styles.js";
 import React from "react";
