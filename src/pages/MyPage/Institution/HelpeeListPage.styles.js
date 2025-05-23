@@ -18,14 +18,16 @@ export const Background = styled.div`
     display: flex;
     align-items: center;
 `;
-
-export const ScrollableVolunteerList = styled.div`
-    flex: 1;
-    padding: 60px 0 70px 0;
-    height: calc(100vh - 150px); // 정확히 계산
-    overflow-y: scroll;
+export const ScrollableVolunteerList = styled.div.attrs(() => ({
+    id: "scrollableDiv",
+}))`
+    flex-grow: 1;
+    min-height: 0; // ✅ flex + overflow-y 구성에서 중요함
+    overflow-y: auto;
     width: 85%;
+    padding: 30px 0 70px 0;
     cursor: default;
+
     scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
@@ -35,11 +37,7 @@ export const ScrollableVolunteerList = styled.div`
 export const TopWrapper = styled.div`
     position: relative;
     width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 50px 0 0 0;
+    padding: 20px 0 30px 0;
 `;
 
 export const CenteredTitle = styled.div`
@@ -49,20 +47,22 @@ export const CenteredTitle = styled.div`
 `;
 
 export const PlusButton = styled.button`
-  margin-left: 40px;
-    position: absolute;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background-color: white;
-  border: none;
-  color: ${({ theme }) => theme.colors.mint};
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  &:hover {
-    background-color: #f0f0f0;
-  }
+    position: relative;
+    left: 320px; // 오른쪽 여백
+    top: 0;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    border: none;
+    color: ${({ theme }) => theme.colors.mint};
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
 `;

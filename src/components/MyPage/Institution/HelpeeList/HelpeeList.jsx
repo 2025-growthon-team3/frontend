@@ -6,13 +6,14 @@ import HelpeeCard from "../HelpeeCard/HelpeeCard.jsx";
 const HelpeeList = () => {
     const [displayList, setDisplayList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
-    const ITEMS_PER_LOAD = 7;
+    const ITEMS_PER_LOAD = 3;
 
     useEffect(() => {
         setDisplayList(volunteers.slice(0, ITEMS_PER_LOAD));
     }, []);
 
     const loadMore = () => {
+        console.log("loadMore 호출됨!")
         const currentLength = displayList.length;
         const nextItems = volunteers.slice(currentLength, currentLength + ITEMS_PER_LOAD);
 
@@ -33,7 +34,7 @@ const HelpeeList = () => {
             dataLength={displayList.length}
             next={loadMore}
             hasMore={hasMore}
-            loader={<h4 style={{ textAlign: "center", cursor: "default" }}>로딩 중...</h4>}
+            loader={<h4 style={{ textAlign: "center" }}>로딩 중...</h4>}
             scrollableTarget="scrollableDiv"
             style={{ cursor: "default" }}
         >
