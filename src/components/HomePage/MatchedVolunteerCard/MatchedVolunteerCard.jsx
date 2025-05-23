@@ -50,7 +50,7 @@ const MatchedVolunteerCard = ({
                 isExpanded={false}
                 bgColor={isExpanded ? theme.colors.mint : "#ffffff"}
             >
-                {!isExpanded && <VInfoBadge>{helpeeName}</VInfoBadge>}
+                {!isExpanded && <VInfoBadge>봉사자 Id:{historyId}</VInfoBadge>}
             </VolunteerCardBase>
 
             {showDetail && (
