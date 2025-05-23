@@ -7,6 +7,8 @@ import {
 } from "../VolunteerCardBase/VolunteerCardBase.styles.js";
 import theme from "../../../styles/theme.js";
 import {useNavigate} from "react-router-dom";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../../../../firebase.js";
 
 const UnmatchedVolunteerCard = ({
                                     helpeeId,
@@ -20,15 +22,26 @@ const UnmatchedVolunteerCard = ({
                        }) => {
     // 채팅방 이동 구현
     const navigate = useNavigate();
-    const kakaoId = localStorage.getItem('Kakaoid');
-
-    const handleChat = () => {
+    const INSTITUTION_ID = "INSTITUTION_1"; // 기관 고정 채팅 ID
+    const handleChat = async () => {
+        const kakaoId = localStorage.getItem("Kakaoid");
         const roomId = `${helpeeId}_${kakaoId}`;
+        const roomRef = doc(db, "rooms", roomId);
+        // 방 생성 또는 participants만 머지(merge)
+        await setDoc(
+            roomRef,
+            {
+                participants: [helpeeId, kakaoId],
+                receiverId: INSTITUTION_ID,       // 여기
+                createdAt: serverTimestamp(),
+            },
+            { merge: true }
+        );
+
         navigate(`/chatroom/${roomId}`);
     };
 
-
-    return (
+        return (
         <>
             <VolunteerCardBase
                 name={name}

@@ -3,6 +3,7 @@ import * as A from "./ChatListPage.styles.js"
 import { IoChatbubble } from "react-icons/io5";
 import ChatList from "/src/components/ChatPage/ChatList/ChatList.jsx";
 const ChatListPage = () => {
+
     return(
         <A.Container>
             <A.Background>

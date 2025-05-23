@@ -1,12 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
-import * as S from './ChatRoom.styles';
+import * as S from './ChatRoomPersonal.styles.js';
 import { IoMdSend } from "react-icons/io";
 import { useParams } from 'react-router-dom';
 import { volunteers } from '/src/mock/volunteers'; // mock 데이터
-import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../../../firebase.js';
+import {
+    addDoc,
+    collection,
+    query,
+    orderBy,
+    onSnapshot,
+    doc,
+    updateDoc,
+    serverTimestamp,
+} from "firebase/firestore";
+import {formatTime} from "../../../utils/formatTime.js";
 
-const ChatRoom = () => {
+const ChatRoomPersonal = () => {
     const { roomId } = useParams(); // e.g., 1_123456789
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
@@ -19,6 +29,7 @@ const ChatRoom = () => {
 
     // ✅ 메시지 불러오기
     useEffect(() => {
+        if (!roomId) return;
         const q = query(collection(db, 'rooms', roomId, 'messages'), orderBy('timestamp'));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             setMessages(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
@@ -33,21 +44,33 @@ const ChatRoom = () => {
     }, [helpeeId]);
 
     const sendMessage = async () => {
-        if (input.trim() === '') return;
-        await addDoc(collection(db, 'rooms', roomId, 'messages'), {
-            text: input,
-            sender: currentUser,
-            timestamp: serverTimestamp(),
-        });
-        setInput('');
-    };
+        // 빈 문자열 전송 방지
+        if (!input.trim()) return;
 
-    const formatTime = (timestamp) => {
-        if (!timestamp) return '';
-        const date = timestamp.toDate();
-        return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-    };
+        try {
+            // 메시지 컬렉션에 문서 추가
+            await addDoc(
+                collection(db, "rooms", roomId, "messages"),
+                {
+                    text: input,
+                    sender: currentUser,
+                    timestamp: serverTimestamp(),
+                }
+            );
 
+            // 입력창 비우기
+            setInput("");
+
+            // 방 메타데이터 업데이트
+            const roomRef = doc(db, "rooms", roomId);
+            await updateDoc(roomRef, {
+                lastMessage: input,
+                lastMessageTime: serverTimestamp(),
+            });
+        } catch (error) {
+            console.error("메시지 전송 중 오류 발생:", error);
+        }
+    };
     return (
         <S.ChatWrapper>
             <S.Header>
@@ -96,4 +119,4 @@ const ChatRoom = () => {
     );
 };
 
-export default ChatRoom;
+export default ChatRoomPersonal;
