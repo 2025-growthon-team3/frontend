@@ -1,24 +1,38 @@
 import VolunteerCardBase from "../VolunteerCardBase/VolunteerCardBase.jsx";
 import {
     Vtitle,
-    VDetail
+    VDetail,
+    VInfoBadge,
 } from "../VolunteerCardBase/VolunteerCardBase.styles.js";
-import { SlideDetailWrapper } from "./MatchedVolunteerCard.styles.js";
+import { SlideDetailWrapper,ConnectedCardWrapper } from "./MatchedVolunteerCard.styles.js";
 import { useTheme } from "styled-components";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const MatchedVolunteerCard = ({
                                   name, age, gender, helpRequest, helpDetail,
-                                  isExpanded, onClick, extraCardData = null
+                                  isExpanded, onClick
                               }) => {
     const theme = useTheme();
     const [showDetail, setShowDetail] = useState(false);
+    const [showHelperCard, setShowHelperCard] = useState(false);
+
+    useEffect(() => {
+        if (isExpanded) {
+            setShowDetail(true);
+            setShowHelperCard(true);
+        } else {
+            const timer = setTimeout(() => {
+                setShowDetail(false);
+                setShowHelperCard(false);
+            }, 300); // SlideDetailWrapper와 맞춤
+            return () => clearTimeout(timer);
+        }
+    }, [isExpanded]);
 
     useEffect(() => {
         if (isExpanded) {
             setShowDetail(true);
         } else {
-            // 사라지는 애니메이션을 위해 약간 delay 후 제거
             const timer = setTimeout(() => setShowDetail(false), 300);
             return () => clearTimeout(timer);
         }
@@ -26,6 +40,8 @@ const MatchedVolunteerCard = ({
 
     return (
         <>
+            <ConnectedCardWrapper>
+            {/* 메인 카드 */}
             <VolunteerCardBase
                 name={name}
                 age={age}
@@ -34,28 +50,35 @@ const MatchedVolunteerCard = ({
                 onClick={onClick}
                 isExpanded={false}
                 bgColor={isExpanded ? theme.colors.mint : "#ffffff"}
-            />
+            >
+                {/* 헬퍼 이름 뱃지 (확장 중일 땐 숨김) */}
+                {!isExpanded && <VInfoBadge>김민서</VInfoBadge>}
+            </VolunteerCardBase>
 
             {showDetail && (
                 <>
+                    {/* 흰색 상세 설명 박스 */}
                     <SlideDetailWrapper $show={isExpanded}>
                         <Vtitle>{helpRequest}</Vtitle>
                         <VDetail>{helpDetail}</VDetail>
                     </SlideDetailWrapper>
 
-                    {extraCardData && (
+                    {/* 오렌지색 매칭 봉사자 카드 */}
+                    {showHelperCard && (
                         <VolunteerCardBase
-                            name={extraCardData.name}
-                            age={extraCardData.age}
-                            gender={extraCardData.gender}
+                            name="김민서"
+                            age="23"
+                            gender="female"
+                            bgColor={theme.colors.orange}
                             isExpanded={false}
-                            bgColor={extraCardData.bgColor || "#f0f0f0"}
                         >
-                            {extraCardData.customText && <VDetail>{extraCardData.customText}</VDetail>}
+                            <VDetail>봉사 경험 2회</VDetail>
                         </VolunteerCardBase>
                     )}
+
                 </>
             )}
+            </ConnectedCardWrapper>
         </>
     );
 };

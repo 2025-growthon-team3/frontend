@@ -5,7 +5,7 @@ import {
     VButtonWrapper,
     VButton
 } from "../VolunteerCardBase/VolunteerCardBase.styles.js";
-
+import theme from "../../../styles/theme.js";
 const UnmatchedVolunteerCard = ({
                            name,
                            age,
@@ -23,6 +23,8 @@ const UnmatchedVolunteerCard = ({
                 gender={gender}
                 onClick={onClick}
                 isExpanded={isExpanded}
+                bgColor={isExpanded ? theme.colors.orange : "#ffffff"}
+
             >
                 {isExpanded && <Vtitle>{helpRequest}</Vtitle>}
                 {isExpanded && <VDetail>{helpDetail}</VDetail>}
