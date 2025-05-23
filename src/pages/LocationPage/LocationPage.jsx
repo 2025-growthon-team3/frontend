@@ -65,19 +65,16 @@ const LocationPage = () => {
 
   return (
     <L.Container>
-      <LoadScript googleMapsApiKey={import.meta.env.VITE_MAP_API_KEY}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
-          <Marker position={center} icon={myPin} />
-
-          {institutions.map((inst) => (
-            <Marker
-              key={inst.id}
-              position={{ lat: inst.lat, lng: inst.lng }}
-              icon={ongiPin}
-            />
-          ))}
-        </GoogleMap>
-      </LoadScript>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
+        <Marker position={center} icon={myPin} />
+        {institutions.map((inst) => (
+          <Marker
+            key={inst.id}
+            position={{ lat: inst.lat, lng: inst.lng }}
+            icon={ongiPin}
+          />
+        ))}
+      </GoogleMap>
       <TabBar type="songil" index={0} />
     </L.Container>
   );

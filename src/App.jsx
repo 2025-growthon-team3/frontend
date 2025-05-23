@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { LoadScript } from "@react-google-maps/api";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 
@@ -131,10 +132,12 @@ function App() {
   ]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <LoadScript googleMapsApiKey={import.meta.env.VITE_MAP_API_KEY}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </LoadScript>
   );
 }
 
