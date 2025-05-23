@@ -1,12 +1,12 @@
 import React from "react";
 import TabBar from "../../components/TabBar/TabBar";
 
-const MainPage = () => {
+const LocationPage = () => {
   return (
     <div>
-      <TabBar type="songil" index={1} />
+      <TabBar type="songil" index={0} />
     </div>
   );
 };
 
-export default MainPage;
+export default LocationPage;

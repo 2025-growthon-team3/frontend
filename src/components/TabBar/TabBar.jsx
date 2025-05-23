@@ -11,17 +11,21 @@ import homeIconMint from "../../assets/images/homeIconMint.png";
 import personIcon from "../../assets/images/personIcon.png";
 import personIconOrange from "../../assets/images/personIconOrange.png";
 import personIconMint from "../../assets/images/personIconMint.png";
+import { useNavigate } from "react-router-dom";
 
 const icons = [locationIcon, homeIcon, personIcon];
 const iconsOrange = [locationIconOrange, homeIconOrange, personIconOrange];
 const iconsMint = [locationIconMint, homeIconMint, personIconMint];
 
-const TabBar = ({ onTabChange, type }) => {
-  const [activeTab, setActiveTab] = useState(0);
+const tabRoutes = ["/location", "/", "/mypage"];
+
+const TabBar = ({ type, index }) => {
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState(index);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
-    if (onTabChange) onTabChange(index);
+    navigate(tabRoutes[index]);
   };
 
   return (
