@@ -28,9 +28,8 @@ export const ScrollArea = styled.div`
     flex: 1;
     overflow-y: auto;
     background-color: ${({ theme }) => theme.colors.lightmint};
-    border-radius: 50px 50px 0 0;
-
     scrollbar-width: none;
+    margin-bottom: 100px;
     &::-webkit-scrollbar {
         display: none;
     }

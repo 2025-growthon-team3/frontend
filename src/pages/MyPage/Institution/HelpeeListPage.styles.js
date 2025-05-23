@@ -59,6 +59,6 @@ export const PlusButton = styled.button`
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: #f0f0f0;
+        background-color: lightgray;
     }
 `;

@@ -8,13 +8,13 @@ export const VContainer = styled.div`
     background-color: ${({ $bgColor }) => $bgColor || "#ffffff"};
     border-radius: 28px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
     line-height: 1.2;
     font-family: 'Pretendard Variable';
-    max-height: ${({ $expanded }) => ($expanded ? "400px" : "80px")};
+    max-height: ${({ $expanded }) => ($expanded ? "300px" : "80px")};
 `;
 
 export const VImg = styled.img`
