@@ -1,11 +1,14 @@
-// src/components/HomePage/Personal/UnmatchedVolunteerList.jsx
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import axiosInstance from "/src/api/axiosInstance";
 import UnmatchedVolunteerCard from "../UnmatchedVolunteerCard/UnmatchedVolunteerCard";
 import styled from "styled-components";
 
 const Container = styled.div`
   padding: 0;
+  height: 500px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 `;
 
 const NoData = styled.p`
@@ -29,6 +32,14 @@ const UnmatchedVolunteerList = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState(null);
+
+  // 매칭 완료 시 해당 helpee를 목록에서 제거
+  const handleMatchSuccess = (matchedId) => {
+    setHelpees((prev) => prev.filter((h) => h.id !== matchedId));
+    if (expandedId === matchedId) {
+      setExpandedId(null);
+    }
+  };
 
   useEffect(() => {
     const fetchUnmatched = async () => {
@@ -66,20 +77,29 @@ const UnmatchedVolunteerList = () => {
   };
 
   return (
-    <Container>
-      {helpees.map((h) => (
-        <UnmatchedVolunteerCard
-          key={h.id}
-          helpeeId={h.id} // id를 사용하도록 변경
-          name={h.name}
-          age={h.age}
-          gender={h.gender}
-          helpRequest={h.helpRequestDetail}
-          helpDetail={h.helpDetail}
-          isExpanded={h.id === expandedId} // 비교 대상도 id로 변경
-          onClick={() => handleCardClick(h.id)} // 클릭 시 id를 전달
-        />
-      ))}
+    <Container id="scrollableDiv">
+      <InfiniteScroll
+        dataLength={helpees.length}
+        next={() => {}}
+        hasMore={false}
+        loader={<h4 style={{ textAlign: "center" }}>로딩 중...</h4>}
+        scrollableTarget="scrollableDiv"
+      >
+        {helpees.map((h) => (
+          <UnmatchedVolunteerCard
+            key={h.id}
+            helpeeId={h.id}
+            name={h.name}
+            age={h.age}
+            gender={h.gender}
+            helpRequest={h.helpRequestDetail}
+            helpDetail={h.helpDetail}
+            isExpanded={h.id === expandedId}
+            onClick={() => handleCardClick(h.id)}
+            onMatched={() => handleMatchSuccess(h.id)}
+          />
+        ))}
+      </InfiniteScroll>
     </Container>
   );
 };

@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const VContainer = styled.div`
-  width: 90%;
+  width: 320px;
+
   margin: 0 16px;
   display: flex;
   align-items: flex-start;
+
+  border-radius: 33px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   background-color: ${({ $bgColor }) => $bgColor || "#ffffff"};
-  border-radius: 28px;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 6px 0px rgba(66, 83, 107, 0.22) inset,
+    0px -4px 8.8px 0px rgba(255, 255, 255, 0.25),
+    0px 4px 6.2px -2px rgba(76, 76, 77, 0.4);
+
   padding: 10px;
   cursor: pointer;
   position: relative;
@@ -16,6 +22,8 @@ export const VContainer = styled.div`
   font-family: "Pretendard Variable";
   max-height: ${({ $expanded }) => ($expanded ? "300px" : "80px")};
   z-index: 1;
+
+  margin-bottom: 15px;
 `;
 
 export const VImg = styled.img`
