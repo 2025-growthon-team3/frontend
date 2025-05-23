@@ -14,6 +14,8 @@ const getBackgroundColors = (title) => {
 };
 
 export const Container = styled.div`
+  cursor: pointer;
+
   width: ${({ size }) => size || "189px"};
   height: ${({ size }) => size || "189px"};
   border-radius: 50%;

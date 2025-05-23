@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as L from "./LoginPage.style";
 
 // image
@@ -11,17 +11,36 @@ import LoginButton from "../../components/LoginPage/LoginButton/LoginButton";
 import Divider from "../../components/LoginPage/Divider/Divider";
 
 const LoginPage = () => {
+  const REST_API_KEY = import.meta.env.VITE_REST_API_KEY;
+  const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const KakaoLoginHandler = () => {
+    window.location.href = link;
+  };
+
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <L.Container>
       <L.Logo src={logo} alt="logo" />
       <L.TextFieldContainer>
-        <TextField>ID</TextField>
-        <TextField>Password</TextField>
+        <TextField
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          placeholder="ID"
+        />
+        <TextField
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+        />
         <L.ForgetPassword>Forget Password ?</L.ForgetPassword>
       </L.TextFieldContainer>
       <LoginButton color="orange">Login</LoginButton>
       <Divider>Or sign up with</Divider>
-      <L.KakaoButton>
+      <L.KakaoButton onClick={KakaoLoginHandler}>
         <img src={kakao} alt="kakao" />
       </L.KakaoButton>
       <L.CreateContainer>

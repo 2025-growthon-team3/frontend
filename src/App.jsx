@@ -7,8 +7,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
-import ChatRoom from "./components/ChatPage/ChatRoom/ChatRoom.jsx";
-import ChatList from "./components/ChatPage/ChatList/ChatList.jsx";
+import KakaoRedirection from "./pages/LoginPage/KakaoRedirection";
+import MainPage from "./pages/MainPage/MainPage";
+import LocationPage from "./pages/LocationPage/LocationPage";
+import MyPage from "./pages/MyPage/MyPage";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -16,11 +19,15 @@ function App() {
       children: [
         {
           index: true,
-          element: <ChatRoom/>,
+          element: <MainPage />,
         },
         {
           path: "login",
           element: <LoginPage />,
+        },
+        {
+          path: "auth/kakao/callback",
+          element: <KakaoRedirection />,
         },
         {
           path: "select",
@@ -33,6 +40,14 @@ function App() {
         {
           path: "application",
           element: <ApplicationPage />,
+        },
+        {
+          path: "location",
+          element: <LocationPage />,
+        },
+        {
+          path: "mypage",
+          element: <MyPage />,
         },
       ],
     },
