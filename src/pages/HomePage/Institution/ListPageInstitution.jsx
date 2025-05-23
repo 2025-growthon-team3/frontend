@@ -5,13 +5,15 @@ import * as I from "./ListPageInstitution.styles.js";
 import Alamy from "/src/components/HomePage/Alamy/Alamy.jsx";
 import { useNavigate } from "react-router-dom";
 
+import chat from "../../../assets/images/chatIcon.png";
+
 const ListPageInstitution = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <I.PageContainer>
-        {/* 채팅 리스트로 이동하는 버튼 */}
-        <I.ChatButton onClick={() => navigate("/chats")}>
-        </I.ChatButton>
+      <I.ChatButton onClick={() => navigate("/chats")}>
+        <img src={chat} alt="채팅 아이콘" />
+      </I.ChatButton>
       <PercentBar type="ongi" percent={50} />
       <I.BottomSection>
         <I.AlamyWrapper>
