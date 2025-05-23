@@ -17,11 +17,11 @@ const icons = [locationIcon, homeIcon, personIcon];
 const iconsOrange = [locationIconOrange, homeIconOrange, personIconOrange];
 const iconsMint = [locationIconMint, homeIconMint, personIconMint];
 
-const tabRoutes = ["/location", "/", "/mypage"];
-
 const TabBar = ({ type, index }) => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(index);
+
+  const tabRoutes = [`/location/${type}`, `/home/${type}`, `/mypage/${type}`];
 
   const handleTabClick = (index) => {
     setActiveTab(index);

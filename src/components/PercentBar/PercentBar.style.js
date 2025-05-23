@@ -45,8 +45,10 @@ export const PercentBar = styled.div`
 
   border-radius: 20px;
   border: 1px solid #fff;
-  background: linear-gradient(90deg, #f97e55 -3.92%, #ffd7ca 97.7%);
-  background: linear-gradient(90deg, #54cabc -3.92%, #bfeae5 97.7%);
+  background: ${({ type }) =>
+    type === "songil"
+      ? "linear-gradient(90deg, #f97e55 -3.92%, #ffd7ca 97.7%)"
+      : "linear-gradient(90deg, #54cabc -3.92%, #bfeae5 97.7%)"};
 
   color: #000;
   font-family: "Pretendard Variable";
