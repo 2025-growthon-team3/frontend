@@ -21,7 +21,7 @@ const ApplicationPage = () => {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    navigate("/");
+    navigate("/home/songil");
   };
 
   const handleSubmit = async () => {
