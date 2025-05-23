@@ -56,6 +56,7 @@ const UnmatchedVolunteerCard = ({
             // axiosInstance 에 이미 baseURL, auth 헤더 등 세팅되어 있다면
             const response = await axiosInstance.post(`/volunteer/${helpeeId}`);
             if (response.data.success) {
+                console.log("매칭 성공");
                 setIsModalOpen(true);
             } else {
                 alert("매칭 신청 실패: " + response.data.message);
