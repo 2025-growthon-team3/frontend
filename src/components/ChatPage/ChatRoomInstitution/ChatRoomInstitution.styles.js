@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme.js";
 
 // 채팅 전체 Wrapper
 export const ChatWrapper = styled.div`
@@ -149,3 +150,20 @@ export const SendButton = styled.button`
   align-items: center;
   justify-content: center;
 `;
+export const CloseButton = styled.button`
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: ${theme.colors.lightmint};
+    color: red;
+
+    &:hover {
+        color: #000;
+    }
+`

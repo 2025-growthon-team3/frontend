@@ -66,7 +66,13 @@ const UnmatchedVolunteerList = () => {
     };
 
     return (
-        <Container>
+        <InfiniteScroll
+            dataLength={displayList.length}
+            next={loadMore}
+            hasMore={hasMore}
+            loader={<h4 style={{ textAlign: "center" }}>로딩 중...</h4>}
+            scrollableTarget="scrollableDiv"
+        >
             {helpees.map((h) => (
                 <UnmatchedVolunteerCard
                     key={h.id}
@@ -80,7 +86,7 @@ const UnmatchedVolunteerList = () => {
                     onClick={() => handleCardClick(h.id)} // 클릭 시 id를 전달
                 />
             ))}
-        </Container>
+        </InfiniteScroll>
     );
 };
 
