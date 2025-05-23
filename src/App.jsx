@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
-
+import {useEffect} from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
@@ -23,6 +23,12 @@ import ChatRoomInstitution from "./components/ChatPage/ChatRoomInstitution/ChatR
 import ChatRoomPersonal from "./components/ChatPage/ChatRoomPersonal/ChatRoomPersonal.jsx";
 
 function App() {
+  useEffect(() => {
+    localStorage.setItem(
+        "accessToken",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInJvbGUiOiJoZWxwZXIiLCJpYXQiOjE3NDgwMjM0MzYsImV4cCI6MTc0ODYyODIzNn0.LWb2Fev5cI073DIzEPn00G88_fDzhsAJRciKhi-0Vcg"
+    );
+  }, []);
   const router = createBrowserRouter([
     {
       path: "/",

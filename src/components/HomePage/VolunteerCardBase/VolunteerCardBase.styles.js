@@ -10,6 +10,7 @@ export const VContainer = styled.div`
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
     cursor: pointer;
+    cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
     line-height: 1.2;

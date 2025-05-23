@@ -1,36 +1,16 @@
 import * as D from './DoneVolunteerCard.styles.js'
 import MyPageCardBase from "../../MyPageCardBase/MyPageCardBase.jsx";
 
-const DoneVolunteerCard = ({
-                               name,
-                               age,
-                               gender,
-                               helpRequest,
-                               status,
-                           }) => {
-    const getStatusText = (status) => {
-        switch (status) {
-            case "requested":
-                return "대기";
-            case "rejected":
-                return "반려";
-            case "approved":
-                return "승인";
-            default:
-                return "미정";
-        }
-    };
+const DoneVolunteerCard = ({ helpTime, helpee }) => {
+
 
     return (
         <MyPageCardBase
-            name={name}
-            age={age}
-            gender={gender}
-            helpRequest={helpRequest}
+            name={helpee.name}
         >
             <D.TagWrapper>
-                <D.TagAbout status={status}>
-                    {getStatusText(status)}
+                <D.TagAbout status="approved">
+                    완료: {helpTime}
                 </D.TagAbout>
             </D.TagWrapper>
         </MyPageCardBase>
