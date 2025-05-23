@@ -7,7 +7,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
-
+import ChatRoom from "./components/ChatPage/ChatRoom/ChatRoom.jsx";
+import ChatList from "./components/ChatPage/ChatList/ChatList.jsx";
 function App() {
   const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <div>초기 세팅 완료</div>,
+          element: <ChatRoom/>,
         },
         {
           path: "login",

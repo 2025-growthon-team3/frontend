@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// 너가 가져온 설정을 여기에 복붙!
 const firebaseConfig = {
     apiKey: "AIzaSyDRlIV6NACzXjRWHp_zdZT-2VJNnaqdHxo",
     authDomain: "growthon-1f554.firebaseapp.com",
