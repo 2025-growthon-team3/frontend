@@ -40,7 +40,7 @@ const TabBar = ({ type, index }) => {
         return (
           <T.TabItem
             key={index}
-            isActive={isActive}
+            $isActive={isActive}
             onClick={() => handleTabClick(index)}
           >
             <img src={iconSrc} alt={`tab-icon-${index}`} />
