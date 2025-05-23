@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Card = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const Card = styled.div`
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   margin: 20px auto;
-    padding: 14px;
+  padding: 14px;
   width: 90%;
   cursor: pointer;
 `;
@@ -25,12 +25,13 @@ export const TextSection = styled.div`
   flex-direction: column;
   flex-grow: 1;
   margin-left: 12px;
+  width: 80px;
 `;
 
 export const Name = styled.div`
   font-weight: bold;
   font-size: 14px;
-    font-family: "Pretendard-Variable";
+  font-family: "Pretendard-Variable";
 `;
 
 export const HelpRequest = styled.div`
@@ -39,8 +40,7 @@ export const HelpRequest = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-    font-family: "Pretendard-Variable";
-    
+  font-family: "Pretendard-Variable";
 `;
 
 export const RightInfo = styled.div`
@@ -48,9 +48,8 @@ export const RightInfo = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
-    font-family: "Pretendard-Variable";
-    font-size: 8px;
-    
+  font-family: "Pretendard-Variable";
+  font-size: 8px;
 `;
 
 export const Time = styled.div`

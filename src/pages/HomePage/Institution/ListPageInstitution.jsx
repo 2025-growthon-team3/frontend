@@ -14,7 +14,7 @@ const ListPageInstitution = () => {
       <I.ChatButton onClick={() => navigate("/chats")}>
         <img src={chat} alt="채팅 아이콘" />
       </I.ChatButton>
-      <PercentBar type="ongi" percent={50} />
+      <PercentBar type="ongi" percent={80} />
       <I.BottomSection>
         <I.AlamyWrapper>
           <Alamy label={"봉사 진행 알림이"} />
