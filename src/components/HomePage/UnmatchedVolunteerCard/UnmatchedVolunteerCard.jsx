@@ -6,15 +6,46 @@ import {
     VButton
 } from "../VolunteerCardBase/VolunteerCardBase.styles.js";
 import theme from "../../../styles/theme.js";
+import { useNavigate } from "react-router-dom";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../../../../firebase.js";
+
 const UnmatchedVolunteerCard = ({
-                           name,
-                           age,
-                           gender,
-                           helpRequest,
-                           helpDetail,
-                           isExpanded,
-                           onClick
-                       }) => {
+                                    helpeeId,
+                                    name,
+                                    age,
+                                    gender,
+                                    helpRequest,
+                                    helpDetail,
+                                    isExpanded,
+                                    onClick,
+                                }) => {
+    const navigate = useNavigate();
+    const INSTITUTION_ID = "INSTITUTION_1";
+
+    const handleChat = async () => {
+        const kakaoId = localStorage.getItem("Kakaoid");
+        const roomId = `${helpeeId}_${kakaoId}`;
+        const roomRef = doc(db, "rooms", roomId);
+
+        await setDoc(
+            roomRef,
+            {
+                participants: [helpeeId, kakaoId],
+                receiverId: INSTITUTION_ID,
+                createdAt: serverTimestamp(),
+            },
+            { merge: true }
+        );
+
+           // 여기에서 state 로 헬피 정보를 함께 넘겨줍니다
+            navigate(`/chatroom/${roomId}`, {
+                     state: {
+                   helpee: { helpeeId, name, age, gender, helpRequest, helpDetail }
+                 }
+    });
+    };
+
     return (
         <>
             <VolunteerCardBase
@@ -24,7 +55,6 @@ const UnmatchedVolunteerCard = ({
                 onClick={onClick}
                 isExpanded={isExpanded}
                 bgColor={isExpanded ? theme.colors.orange : "#ffffff"}
-
             >
                 {isExpanded && <Vtitle>{helpRequest}</Vtitle>}
                 {isExpanded && <VDetail>{helpDetail}</VDetail>}
@@ -33,7 +63,7 @@ const UnmatchedVolunteerCard = ({
             {isExpanded && (
                 <VButtonWrapper>
                     <VButton>매칭 신청</VButton>
-                    <VButton>문의</VButton>
+                    <VButton onClick={handleChat}>문의</VButton>
                 </VButtonWrapper>
             )}
         </>

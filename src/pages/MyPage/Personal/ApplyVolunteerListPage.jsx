@@ -3,10 +3,11 @@ import ApplyVolunteerList from "../../../components/MyPage/Personal/ApplyVolunte
 import * as A from "./ApplyVolunteerPage.styles.js";
 import TabBar from "../../../components/TabBar/TabBar.jsx";
 const ApplyVolunteerListPage = () => {
+
   return (
     <A.Container>
       <A.Background>
-        <TitleBox color="orange">봉사 내역</TitleBox>
+        <TitleBox color="orange">신청 현황</TitleBox>
         <A.ScrollableVolunteerList id="scrollableDiv">
           <ApplyVolunteerList />
         </A.ScrollableVolunteerList>

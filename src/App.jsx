@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LoadScript } from "@react-google-maps/api";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
-
+import {useEffect} from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
@@ -19,8 +19,17 @@ import ApplyVolunteerListPage from "./pages/MyPage/Personal/ApplyVolunteerListPa
 import HelpeeListPage from "./pages/MyPage/Institution/HelpeeListPage";
 import HelpeeRegistrationPage from "./pages/MyPage/Institution/HelpeeRegistrationPage";
 import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage";
+import ChatListPage from "./pages/ChatPage/ChatListPage";
+import ChatRoomInstitution from "./components/ChatPage/ChatRoomInstitution/ChatRoomInstitution.jsx";
+import ChatRoomPersonal from "./components/ChatPage/ChatRoomPersonal/ChatRoomPersonal.jsx";
 
 function App() {
+  useEffect(() => {
+    localStorage.setItem(
+        "accessToken",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInJvbGUiOiJoZWxwZXIiLCJpYXQiOjE3NDgwMjY5NzgsImV4cCI6MTc0ODYzMTc3OH0.sfEZBcRXPXfCmB6oBwEwNJ2Wrx6ZPigW0wkDm3VzDIY"
+    );
+  }, []);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -115,18 +124,17 @@ function App() {
           ],
         },
         {
-          path: "chatting",
-          children: [
-            {
-              path: "songil",
-              element: <div>손길 채팅</div>,
-            },
-            {
-              path: "ongi",
-              element: <div>온기 채팅</div>,
-            },
-          ],
+          path: "chats",
+          element: <ChatListPage />
         },
+        {
+          path: "chatroom/:roomId",
+          element: (
+              // 예: localStorage 값 또는 role 상태에 따라 컴포넌트를 전환
+              localStorage.getItem("Kakaoid") === "한국사회복지회관"
+                  ? <ChatRoomInstitution />
+                  : <ChatRoomPersonal />
+          ) }
       ],
     },
   ]);

@@ -6,19 +6,19 @@ export const TagWrapper = styled.div`
 `;
 
 export const TagAbout = styled.div`
-  width: 60px;
+  width: 90px;
   height: 35px;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
   background-color: ${({ status, theme }) => {
     switch (status) {
         case "requested":
-            return "#FF9800";
+            return "lightgray";
         case "rejected":
             return "#F44336";
         case "approved":
-            return theme.colors.mint;
+            return theme.colors.orange;
         default:
             return "#BDBDBD";
     }

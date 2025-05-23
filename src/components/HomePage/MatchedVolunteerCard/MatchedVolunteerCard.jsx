@@ -1,16 +1,25 @@
+import React, { useState, useEffect } from "react";
+import { useTheme } from "styled-components";
 import VolunteerCardBase from "../VolunteerCardBase/VolunteerCardBase.jsx";
 import {
     Vtitle,
     VDetail,
     VInfoBadge,
 } from "../VolunteerCardBase/VolunteerCardBase.styles.js";
-import { SlideDetailWrapper,ConnectedCardWrapper } from "./MatchedVolunteerCard.styles.js";
-import { useTheme } from "styled-components";
-import { useState, useEffect } from "react";
+import {
+    SlideDetailWrapper,
+    ConnectedCardWrapper,
+} from "./MatchedVolunteerCard.styles.js";
 
 const MatchedVolunteerCard = ({
-                                  name, age, gender, helpRequest, helpDetail,
-                                  isExpanded, onClick
+                                  historyId,
+                                  helpeeName,
+                                  helpeeGender,
+                                  helpeeAge,
+                                  helpDetail,
+                                  helpTime,
+                                  isExpanded,
+                                  onClick,
                               }) => {
     const theme = useTheme();
     const [showDetail, setShowDetail] = useState(false);
@@ -24,62 +33,50 @@ const MatchedVolunteerCard = ({
             const timer = setTimeout(() => {
                 setShowDetail(false);
                 setShowHelperCard(false);
-            }, 300); // SlideDetailWrapper와 맞춤
-            return () => clearTimeout(timer);
-        }
-    }, [isExpanded]);
-
-    useEffect(() => {
-        if (isExpanded) {
-            setShowDetail(true);
-        } else {
-            const timer = setTimeout(() => setShowDetail(false), 300);
+            }, 300);
             return () => clearTimeout(timer);
         }
     }, [isExpanded]);
 
     return (
-        <>
-            <ConnectedCardWrapper>
-            {/* 메인 카드 */}
+        <ConnectedCardWrapper>
+            {/* 민트색 헬피 카드 */}
             <VolunteerCardBase
-                name={name}
-                age={age}
-                gender={gender}
-                helpRequest={helpRequest}
+                name={helpeeName}
+                age={helpeeAge}
+                gender={helpeeGender}
+                helpRequest={helpDetail}
                 onClick={onClick}
                 isExpanded={false}
                 bgColor={isExpanded ? theme.colors.mint : "#ffffff"}
             >
-                {/* 헬퍼 이름 뱃지 (확장 중일 땐 숨김) */}
-                {!isExpanded && <VInfoBadge>김민서</VInfoBadge>}
+                {!isExpanded && <VInfoBadge>{helpeeName}</VInfoBadge>}
             </VolunteerCardBase>
 
             {showDetail && (
                 <>
                     {/* 흰색 상세 설명 박스 */}
                     <SlideDetailWrapper $show={isExpanded}>
-                        <Vtitle>{helpRequest}</Vtitle>
+                        <Vtitle>봉사 내용</Vtitle>
                         <VDetail>{helpDetail}</VDetail>
                     </SlideDetailWrapper>
 
-                    {/* 오렌지색 매칭 봉사자 카드 */}
+                    {/* 주황색 봉사 내역 카드 (historyId와 helpTime 표시) */}
                     {showHelperCard && (
                         <VolunteerCardBase
-                            name="김민서"
-                            age="23"
-                            gender="female"
-                            bgColor={theme.colors.orange}
+                            name={historyId}               // history id 표시
+                            age={null}
+                            gender={null}
+                            helpRequest={null}
                             isExpanded={false}
+                            bgColor={theme.colors.orange}
                         >
-                            <VDetail>봉사 경험 2회</VDetail>
+                            <VDetail>봉사 일정: {helpTime}</VDetail>   {/* helpTime 표시 */}
                         </VolunteerCardBase>
                     )}
-
                 </>
             )}
-            </ConnectedCardWrapper>
-        </>
+        </ConnectedCardWrapper>
     );
 };
 
