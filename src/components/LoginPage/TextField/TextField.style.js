@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   border-radius: 33px;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  background: #fffdf9;
+  background: ${({ $disabled }) => ($disabled ? "#E8E8E8" : "#fffdf9")};
   box-shadow: 0px -4px 14px 0px #fff inset,
     0px 2px 6px 0px rgba(66, 83, 107, 0.22) inset,
     0px -4px 8.8px 0px rgba(255, 255, 255, 0.25),
