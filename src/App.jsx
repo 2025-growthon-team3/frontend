@@ -8,6 +8,9 @@ import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
 import KakaoRedirection from "./pages/LoginPage/KakaoRedirection";
+import MainPage from "./pages/MainPage/MainPage";
+import LocationPage from "./pages/LocationPage/LocationPage";
+import MyPage from "./pages/MyPage/MyPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +19,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <div>초기 세팅 완료</div>,
+          element: <MainPage />,
         },
         {
           path: "login",
@@ -37,6 +40,14 @@ function App() {
         {
           path: "application",
           element: <ApplicationPage />,
+        },
+        {
+          path: "location",
+          element: <LocationPage />,
+        },
+        {
+          path: "mypage",
+          element: <MyPage />,
         },
       ],
     },
