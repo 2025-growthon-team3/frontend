@@ -8,13 +8,16 @@ import TargetSelectPage from "./pages/LoginPage/TargetSelectPage";
 import SignUpPage from "./pages/LoginPage/SignUpPage";
 import ApplicationPage from "./pages/LoginPage/ApplicationPage";
 import KakaoRedirection from "./pages/LoginPage/KakaoRedirection";
-import MainPage from "./pages/MainPage/MainPage";
 import LocationPage from "./pages/LocationPage/LocationPage";
-import MyPage from "./pages/MyPage/MyPage";
-import ChatRoom from "./components/ChatPage/ChatRoom/ChatRoom.jsx";
-import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage.jsx";
-import ListPagePersonal from "./pages/HomePage/Personal/ListPagePersonal.jsx";
-import ChatListPage from "./pages/ChatPage/ChatListPage.jsx";
+import ListPagePersonal from "./pages/HomePage/Personal/ListPagePersonal";
+import ListPageInstitution from "./pages/HomePage/Institution/ListPageInstitution";
+import VolunteerMyPage from "./pages/MyPage/Personal/VolunteerMyPage";
+import InstitutionMyPage from "./pages/MyPage/Institution/InstitutionMyPage";
+import DoneVolunteerListPage from "./pages/MyPage/Personal/DoneVolunteerListPage";
+import ApplyVolunteerListPage from "./pages/MyPage/Personal/ApplyVolunteerListPage";
+import HelpeeListPage from "./pages/MyPage/Institution/HelpeeListPage";
+import HelpeeRegistrationPage from "./pages/MyPage/Institution/HelpeeRegistrationPage";
+import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,8 +25,17 @@ function App() {
       path: "/",
       children: [
         {
-          index: true,
-          element: <MainPage />,
+          path: "home",
+          children: [
+            {
+              path: "songil",
+              element: <ListPagePersonal />,
+            },
+            {
+              path: "ongi",
+              element: <ListPageInstitution />,
+            },
+          ],
         },
         {
           path: "login",
@@ -47,23 +59,72 @@ function App() {
         },
         {
           path: "location",
-          element: <LocationPage />,
+          children: [
+            {
+              path: "songil",
+              element: <LocationPage />,
+            },
+            {
+              path: "ongi",
+              element: <ListPageInstitution />, // 기관 지도 임시
+            },
+          ],
         },
         {
           path: "mypage",
-          element: <MyPage />,
+          children: [
+            {
+              path: "songil",
+              children: [
+                {
+                  index: true,
+                  element: <VolunteerMyPage />,
+                },
+                {
+                  path: "done",
+                  element: <DoneVolunteerListPage />,
+                },
+                {
+                  path: "apply",
+                  element: <ApplyVolunteerListPage />,
+                },
+              ],
+            },
+            {
+              path: "ongi",
+              children: [
+                {
+                  index: true,
+                  element: <InstitutionMyPage />,
+                },
+                {
+                  path: "list",
+                  element: <HelpeeListPage />,
+                },
+                {
+                  path: "register",
+                  element: <HelpeeRegistrationPage />,
+                },
+                {
+                  path: "matching",
+                  element: <MatchingListPage />,
+                },
+              ],
+            },
+          ],
         },
         {
-          path: '/apply',
-          element: <ListPagePersonal />
-        },
-        {
-          path: '/chatroom/:roomId',
-          element: <ChatRoom />
-        },
-        {
-          path: '/chat-list',
-          element: <ChatListPage />
+          path: "chatting",
+          children: [
+            {
+              path: "songil",
+              element: <div>손길 채팅</div>,
+            },
+            {
+              path: "ongi",
+              element: <div>온기 채팅</div>,
+            },
+          ],
         },
       ],
     },

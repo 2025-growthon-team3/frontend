@@ -22,10 +22,10 @@ export const Background = styled.div`
 export const ScrollableVolunteerList = styled.div`
   flex: 1;
   overflow-y: scroll;
-    padding: 40px 0 70px 0;
-    width: 85%;
-    cursor:default;
-    //스크롤바 숨김
+  padding: 40px 0 100px 0;
+  width: 85%;
+  cursor: default;
+  //스크롤바 숨김
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
