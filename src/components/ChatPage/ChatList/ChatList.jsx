@@ -1,4 +1,3 @@
-// src/components/ChatPage/ChatList/ChatList.jsx
 import React, { useEffect, useState } from "react";
 import ChatCard from "../ChatCard/ChatCard";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";

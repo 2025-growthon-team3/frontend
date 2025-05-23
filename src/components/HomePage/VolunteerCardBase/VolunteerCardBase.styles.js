@@ -39,13 +39,13 @@ export const VName = styled.div`
 `;
 
 export const VSubInfo = styled.div`
-    font-size: 12px;
+    font-size: 14px;
     color: #444;
 `;
 
 
 export const Vtitle=styled.div`
-    font-size: 13px;
+    font-size: 16px;
     color: #222;
     margin-top: 6px;
     line-height: 1.2;
@@ -53,7 +53,7 @@ export const Vtitle=styled.div`
     font-weight: bold;
 `
 export const VDetail = styled.div`
-  font-size: 13px;
+  font-size: 14px;
   color: #222;
   margin-top: 6px;
   line-height: 1.2;
@@ -87,13 +87,13 @@ export const VButton = styled.button`
 // 오른쪽 상단 둥근 태그 (매칭된 헬퍼 이름 표시용)
 export const VInfoBadge = styled.div`
     background-color: ${({ theme }) => theme.colors.orange};
-    font-size: 14px;
+    font-size: 13px;
     padding: 10px;
     height: 36px;
-    margin-top: 10px;
+    margin-top: 7px;
     border-radius: 20px;
     position: absolute;       
-    right: 16px;     
+    right: 10px;     
     z-index: 1;
     font-family: "pretendard-variable";
     font-weight: 400;

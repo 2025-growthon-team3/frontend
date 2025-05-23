@@ -1,4 +1,3 @@
-// src/components/ChatPage/ChatRoomPersonal/ChatRoomPersonal.jsx
 import React, { useEffect, useState, useRef } from "react";
 import * as S from "./ChatRoomPersonal.styles.js";
 import { IoMdSend } from "react-icons/io";
@@ -19,7 +18,7 @@ import { formatTime } from "../../../utils/formatTime.js";
 const ChatRoomPersonal = () => {
     const { roomId } = useParams();
     const { state } = useLocation();
-    // UnmatchedVolunteerCard 에서 넘겨준 helpee 정보
+    // UnmatchedVolunteerCard 에서 넘겨준 helpee 정보 받아옴
     const helpee = state?.helpee;
 
     const [messages, setMessages] = useState([]);
@@ -57,6 +56,7 @@ const ChatRoomPersonal = () => {
             await updateDoc(doc(db, "rooms", roomId), {
                 lastMessage: input,
                 lastMessageTime: serverTimestamp(),
+                unreadCount: 1,
             });
         } catch (err) {
             console.error(err);

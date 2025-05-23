@@ -30,6 +30,7 @@ export const SlideDetailWrapper = styled.div`
   width: 85%;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Pretendard Variable';
+    height: 100px;
   animation: ${({ $show }) => ($show ? expand : collapse)} 0.7s ease-in-out;
   animation-fill-mode: forwards;
 `;

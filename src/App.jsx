@@ -20,9 +20,7 @@ import HelpeeListPage from "./pages/MyPage/Institution/HelpeeListPage";
 import HelpeeRegistrationPage from "./pages/MyPage/Institution/HelpeeRegistrationPage";
 import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage";
 import ChatListPage from "./pages/ChatPage/ChatListPage";
-import ChatRoomInstitution from "./components/ChatPage/ChatRoomInstitution/ChatRoomInstitution.jsx";
-import ChatRoomPersonal from "./components/ChatPage/ChatRoomPersonal/ChatRoomPersonal.jsx";
-
+import ChatRoomWrapper from "./components/ChatPage/ChatRoomWrapper.jsx";
 function App() {
   useEffect(() => {
     localStorage.setItem(
@@ -127,14 +125,7 @@ function App() {
           path: "chats",
           element: <ChatListPage />
         },
-        {
-          path: "chatroom/:roomId",
-          element: (
-              // 예: localStorage 값 또는 role 상태에 따라 컴포넌트를 전환
-              localStorage.getItem("Kakaoid") === "한국사회복지회관"
-                  ? <ChatRoomInstitution />
-                  : <ChatRoomPersonal />
-          ) }
+        { path: "chatroom/:roomId", element: <ChatRoomWrapper /> },
       ],
     },
   ]);
