@@ -5,35 +5,36 @@ import UnmatchedVolunteerCard from "../UnmatchedVolunteerCard/UnmatchedVolunteer
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding: 20px;
+    padding: 20px;
 `;
 
 const NoData = styled.p`
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 `;
 
 const Loading = styled.p`
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 `;
 
 const ErrorMessage = styled.p`
-  color: red;
-  text-align: center;
-  margin-top: 20px;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
 `;
 
 const UnmatchedVolunteerList = () => {
     const [helpees, setHelpees] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
+    const [expandedId, setExpandedId] = useState(null);
 
     useEffect(() => {
         const fetchUnmatched = async () => {
             try {
-                const res = await axiosInstance.get("/helpee/unmatched");
-                if (res.data.success) {
+                const res = await axiosInstance.get("/helpee/nearby");
+                if (res.data.success && Array.isArray(res.data.data)) {
                     setHelpees(res.data.data);
                 } else {
                     setError(res.data.message || "데이터를 불러올 수 없습니다.");
@@ -60,14 +61,23 @@ const UnmatchedVolunteerList = () => {
         return <NoData>현재 도움 요청 헬피가 없습니다.</NoData>;
     }
 
+    const handleCardClick = (id) => {
+        setExpandedId((prev) => (prev === id ? null : id));
+    };
+
     return (
         <Container>
             {helpees.map((h) => (
                 <UnmatchedVolunteerCard
                     key={h.id}
-                    helpeeId={h.id}
+                    helpeeId={h.id}                        // id를 사용하도록 변경
                     name={h.name}
-                    institution={h.institution.name}
+                    age={h.age}
+                    gender={h.gender}
+                    helpRequest={h.helpRequestDetail}
+                    helpDetail={h.helpDetail}
+                    isExpanded={h.id === expandedId}     // 비교 대상도 id로 변경
+                    onClick={() => handleCardClick(h.id)} // 클릭 시 id를 전달
                 />
             ))}
         </Container>

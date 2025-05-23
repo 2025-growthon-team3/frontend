@@ -157,7 +157,7 @@ export const HelpeeTextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin-right: 40px;
+    margin-right: 60px;
 `;
 
 export const HelpeeInfo = styled.div`
@@ -171,5 +171,5 @@ export const HelpeeImage = styled.img`
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 17px;
+    margin-left: 30px;
 `;

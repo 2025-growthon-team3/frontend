@@ -68,6 +68,7 @@ export const VButtonWrapper = styled.div`
 `;
 
 export const VButton = styled.button`
+    margin-bottom: 10px;
   font-family: 'Pretendard Variable';
   padding: 10px;
   background-color: white;
@@ -76,7 +77,7 @@ export const VButton = styled.button`
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-    width: 150px;
+    width: 120px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
