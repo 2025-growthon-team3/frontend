@@ -11,6 +11,10 @@ import KakaoRedirection from "./pages/LoginPage/KakaoRedirection";
 import MainPage from "./pages/MainPage/MainPage";
 import LocationPage from "./pages/LocationPage/LocationPage";
 import MyPage from "./pages/MyPage/MyPage";
+import ChatRoom from "./components/ChatPage/ChatRoom/ChatRoom.jsx";
+import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage.jsx";
+import ListPagePersonal from "./pages/HomePage/Personal/ListPagePersonal.jsx";
+import ChatListPage from "./pages/ChatPage/ChatListPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -48,6 +52,18 @@ function App() {
         {
           path: "mypage",
           element: <MyPage />,
+        },
+        {
+          path: '/apply',
+          element: <ListPagePersonal />
+        },
+        {
+          path: '/chatroom/:roomId',
+          element: <ChatRoom />
+        },
+        {
+          path: '/chat-list',
+          element: <ChatListPage />
         },
       ],
     },

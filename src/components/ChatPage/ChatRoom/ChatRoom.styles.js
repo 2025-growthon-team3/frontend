@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../styles/theme.js";
 
 // 채팅 전체 Wrapper
 export const ChatWrapper = styled.div`
@@ -15,8 +16,8 @@ export const Header = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 120px;
-    padding: 12px;
+    height: 200px;
+    padding: 10px;
 `;
 
 // 프로필 이미지
@@ -103,7 +104,7 @@ export const MessageText = styled.div`
 // 입력 영역 Wrapper
 export const InputWrapper = styled.div`
     display: flex;
-    height: 70px;
+    height: 80px;
     align-items: center;
     padding: 12px;
     border-top: 1px solid #eee;
@@ -118,6 +119,7 @@ export const ChatInput = styled.input`
     border-radius: 20px;
     outline: none;
     font-size: 14px;
+    height: 40px;
 `;
 
 // 전송 버튼
@@ -137,4 +139,37 @@ export const SendButton = styled.button`
         width: 20px;
         height: 20px;
     }
+    
+`;
+export const HelpeeInfoWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    margin-top: 18px;
+    width: 90%;
+    background-color: #e1dfdf;
+    padding: 14px;
+    border-radius: 30px;
+`;
+
+export const HelpeeTextWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-right: 40px;
+`;
+
+export const HelpeeInfo = styled.div`
+    font-family: "Pretendard Variable";
+    font-weight: 600;
+    font-size: 14px;
+`;
+
+export const HelpeeImage = styled.img`
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 17px;
 `;

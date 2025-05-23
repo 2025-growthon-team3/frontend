@@ -41,8 +41,13 @@ const UnmatchedVolunteerList = () => {
             {displayList.map((v) => (
                 <UnmatchedVolunteerCard
                     key={v.helpeeId}
-                    {...v}
-                    isExpanded={v.helpeeId === expandedId}
+                    helpeeId={v.helpeeId}
+                    name={v.name}
+                    age={v.age}
+                    gender={v.gender}
+                    helpRequest={v.helpRequest}
+                    helpDetail={v.helpDetail}
+                    isExpanded={expandedId === v.helpeeId}
                     onClick={() => handleCardClick(v.helpeeId)}
                 />
             ))}
