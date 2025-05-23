@@ -5,7 +5,7 @@ import * as L from './ListPagePersonal.styles.js'
 const ListPagePersonal = () => {
     return (
         <L.PageContainer>
-                <div>봉사 온도 컴포넌트 </div>
+                <L.TopWrapper>봉사 온도 컴포넌트 </L.TopWrapper>
             <L.BottomSection>
                 <L.AlamyWrapper>
                     <Alamy label={"도움 알림이"} />

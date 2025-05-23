@@ -28,9 +28,15 @@ export const BottomSection = styled.div`
     border-radius: 50px;
     padding: 20px 20px 60px 20px;
     
-    
-
 `;
+
+export const TopWrapper = styled.div`
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "pretendard-variable;
+`
 export const AlamyWrapper = styled.div`
   height: 70px;
 `;

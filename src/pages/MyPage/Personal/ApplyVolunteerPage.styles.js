@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.mint};
+  background-color: ${({ theme }) => theme.colors.orange};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Background = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.lightmint};
+  background-color: ${({ theme }) => theme.colors.lightorange};
   border-radius: 50px 50px 0 0;
   display: flex;
   flex-direction: column;
