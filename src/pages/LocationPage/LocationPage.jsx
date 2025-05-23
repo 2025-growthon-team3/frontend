@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import TabBar from "../../components/TabBar/TabBar";
 import * as L from "./LocationPage.style";
+import axios from "axios";
 
 // image
 import myPin from "../../assets/images/songilPinIcon.png";
@@ -19,7 +20,9 @@ const defaultCenter = {
 
 const LocationPage = () => {
   const [center, setCenter] = useState(defaultCenter);
+  const [institutions, setInstitutions] = useState([]);
 
+  // 내 위치
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -34,11 +37,45 @@ const LocationPage = () => {
     );
   }, []);
 
+  // 기관 위치
+  useEffect(() => {
+    const fetchInstitutions = async () => {
+      try {
+        const token = localStorage.getItem("accessToken");
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/api/institution/location`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (res.data.success) {
+          setInstitutions(res.data.data);
+        } else {
+          console.error("기관 정보 조회 실패:", res.data.message);
+        }
+      } catch (err) {
+        console.error("기관 위치 요청 오류:", err);
+      }
+    };
+
+    fetchInstitutions();
+  }, []);
+
   return (
     <L.Container>
       <LoadScript googleMapsApiKey={import.meta.env.VITE_MAP_API_KEY}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
           <Marker position={center} icon={myPin} />
+
+          {institutions.map((inst) => (
+            <Marker
+              key={inst.id}
+              position={{ lat: inst.lat, lng: inst.lng }}
+              icon={ongiPin}
+            />
+          ))}
         </GoogleMap>
       </LoadScript>
       <TabBar type="songil" index={0} />
