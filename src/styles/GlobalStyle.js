@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         height: 100%;
-        background-color: #eaeaea;  //루트 바깥쪽 배경색 살짝 구분해뒀습니다
+        background-color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
