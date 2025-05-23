@@ -8,6 +8,9 @@ import axios from "axios";
 import myPin from "../../assets/images/songilPinIcon.png";
 import ongiPin from "../../assets/images/ongiPinIcon.png";
 
+// component
+import LocationModal from "../../components/LocationPage/LocationModal/LocationModal";
+
 const containerStyle = {
   width: "100%",
   height: "100%",
@@ -21,6 +24,7 @@ const defaultCenter = {
 const LocationPage = () => {
   const [center, setCenter] = useState(defaultCenter);
   const [institutions, setInstitutions] = useState([]);
+  const [selectedInstitution, setSelectedInstitution] = useState(null);
 
   // 내 위치
   useEffect(() => {
@@ -72,9 +76,16 @@ const LocationPage = () => {
             key={inst.id}
             position={{ lat: inst.lat, lng: inst.lng }}
             icon={ongiPin}
+            onClick={() => setSelectedInstitution(inst)}
           />
         ))}
       </GoogleMap>
+      {selectedInstitution && (
+        <LocationModal
+          institution={selectedInstitution}
+          onClose={() => setSelectedInstitution(null)}
+        />
+      )}
       <TabBar type="songil" index={0} />
     </L.Container>
   );
