@@ -6,7 +6,7 @@ const PercentBar = ({ type, percent }) => {
     <P.Container>
       <P.Title>{type === "songil" ? "봉사온도" : "기관 매칭률"}</P.Title>
       <P.PercentContainer>
-        <P.PercentBar percent={percent}>
+        <P.PercentBar percent={percent} type={type}>
           {percent}
           {type === "songil" ? "º" : "%"}
         </P.PercentBar>
