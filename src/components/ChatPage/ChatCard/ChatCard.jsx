@@ -1,12 +1,27 @@
-import React from 'react';
-import * as S from './ChatCard.styles.js';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import * as S from "./ChatCard.styles.js";
+import { useNavigate } from "react-router-dom";
 
-const ChatCard = ({ name,lastMessage, lastMessageTime, unreadCount, roomId }) => {
+const ChatCard = ({
+                      name,
+                      lastMessage,
+                      lastMessageTime,
+                      unreadCount,
+                      roomId,
+                      mode = "institution",      // "institution" | "personal"
+                      helpee,                    // optional, state.helpee
+                  }) => {
     const navigate = useNavigate();
+    const handleClick = () => {
+        if (mode === "institution") {
+            navigate(`/chatroom/institution/${roomId}`, { state: { helpee } });
+        } else {
+            navigate(`/chatroom/personal/${roomId}`, { state: { helpee } });
+        }
+    };
 
     return (
-        <S.Card onClick={() => navigate(`/chatroom/${roomId}`)}>
+        <S.Card onClick={handleClick}>
             <S.ProfileImg src="/profile.png" alt="프로필" />
             <S.TextSection>
                 <S.Name>{name}</S.Name>

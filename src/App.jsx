@@ -20,7 +20,8 @@ import HelpeeListPage from "./pages/MyPage/Institution/HelpeeListPage";
 import HelpeeRegistrationPage from "./pages/MyPage/Institution/HelpeeRegistrationPage";
 import MatchingListPage from "./pages/MyPage/Institution/MatchingListPage";
 import ChatListPage from "./pages/ChatPage/ChatListPage";
-import ChatRoomWrapper from "./components/ChatPage/ChatRoomWrapper.jsx";
+import ChatRoomPersonal from "./components/ChatPage/ChatRoomPersonal/ChatRoomPersonal.jsx";
+import ChatRoomInstitution from "./components/ChatPage/ChatRoomInstitution/ChatRoomInstitution.jsx";
 function App() {
   useEffect(() => {
     localStorage.setItem(
@@ -125,7 +126,16 @@ function App() {
           path: "chats",
           element: <ChatListPage />
         },
-        { path: "chatroom/:roomId", element: <ChatRoomWrapper /> },
+        { path: "chatroom",
+          children:[
+              {
+            path: "personal/:roomId",
+            element: <ChatRoomPersonal />,
+          },
+            {
+              path: "institution/:roomId",
+              element: <ChatRoomInstitution />,
+            }, ] },
       ],
     },
   ]);

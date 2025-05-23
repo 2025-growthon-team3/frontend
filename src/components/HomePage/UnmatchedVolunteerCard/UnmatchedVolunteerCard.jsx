@@ -46,10 +46,8 @@ const UnmatchedVolunteerCard = ({
             { merge: true }
         );
 
-        navigate(`/chatroom/${roomId}`, {
-            state: {
-                helpee: { helpeeId, name, age, gender, helpRequest, helpDetail },
-            },
+        navigate(`/chatroom/personal/${roomId}`, {
+            state: { helpee: { helpeeId, name, age, gender, helpRequest, helpDetail } }
         });
     };
 
