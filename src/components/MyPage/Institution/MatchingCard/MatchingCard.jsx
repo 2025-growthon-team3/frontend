@@ -1,24 +1,17 @@
 import * as M from './MatchingCard.styles.js';
 import MyPageCardBase from "../../MyPageCardBase/MyPageCardBase.jsx";
 
-const MatchingCard = ({
-                          helpeeId,
-                          name,
-                          age,
-                          gender,
-                          helpRequest,
-                          onDecision, // 상태 변경 함수 (상위 컴포넌트에서 받음)
-                      }) => {
+const MatchingCard = ({ name, age, gender, experience, onApprove, onReject }) => {
     return (
         <MyPageCardBase
             name={name}
             age={age}
             gender={gender}
-            helpRequest={helpRequest}
+            helpRequest={`봉사 경험 ${experience}회`}
         >
             <M.ButtonWrapper>
-                <M.OButton onClick={() => onDecision(helpeeId, "approved")}>O</M.OButton>
-                <M.XButton onClick={() => onDecision(helpeeId, "rejected")}>X</M.XButton>
+                <M.ApproveButton onClick={onApprove}>O</M.ApproveButton>
+                <M.RejectButton onClick={onReject}>X</M.RejectButton>
             </M.ButtonWrapper>
         </MyPageCardBase>
     );

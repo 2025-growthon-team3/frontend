@@ -1,49 +1,43 @@
-import React, { useEffect, useState } from "react";
-import axios from "/src/api/axiosInstance.js";
+import React, { useState } from "react";
 import MatchingCard from "../MatchingCard/MatchingCard.jsx";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+const dummyData = Array(10).fill({
+    volunteerName: "김민서",
+    gender: "여성",
+    age: 23,
+    experience: 2,
+});
 
 const MatchingList = () => {
-    const [displayList, setDisplayList] = useState([]);
+    const [displayList, setDisplayList] = useState(dummyData);
 
-    useEffect(() => {
-        axios.get("/volunteer?status=requested").then((res) => {
-            console.log("데이터 확인용:", res.data);
-            setDisplayList(res.data.data);
-        });
-    }, []);
-
-    const handleDecision = async (volunteerId, newStatus) => {
-        try {
-            const res = await axios.post(`/api/volunteer/${volunteerId}`, {
-                status: newStatus,
-            });
-
-            if (res.data.success) {
-                setDisplayList((prev) =>
-                    prev.filter((v) => v.volunteerId !== volunteerId)
-                );
-            } else {
-                console.error("서버 응답 실패:", res.data.message);
-            }
-        } catch (error) {
-            console.error("API 오류:", error);
-        }
+    const handleDecision = (index, status) => {
+        //여기에 서버에 status(approved/rejected) 전달하는 API 연결 예정
+        console.log(`index: ${index}, status: ${status}`);
+        setDisplayList(prev => prev.filter((_, i) => i !== index));
     };
 
     return (
-        <>
-            {Array.isArray(displayList) && displayList.map((v) => (
-                <MatchingCard
-                    key={v.volunteerId}
-                    volunteerId={v.volunteerId}
-                    name={v.name}
-                    age={v.age}
-                    gender={v.gender}
-                    helpRequest={v.helpRequest}
-                    onDecision={handleDecision}
-                />
+        <InfiniteScroll
+            dataLength={displayList.length}
+            hasMore={false}
+            scrollableTarget="scrollableDiv"
+            style={{ cursor: "default" }}
+        >
+            {displayList.map((v, index) => (
+                <div key={index}>
+                    <MatchingCard
+                        name={`김민서 → ${v.volunteerName}`}
+                        age={v.age}
+                        gender={v.gender}
+                        experience={v.experience}
+                        onApprove={() => handleDecision(index, "approved")}
+                        onReject={() => handleDecision(index, "rejected")}
+                    />
+                </div>
             ))}
-        </>
+        </InfiniteScroll>
     );
 };
 

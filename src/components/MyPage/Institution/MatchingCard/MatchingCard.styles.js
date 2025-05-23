@@ -1,28 +1,39 @@
 import styled from "styled-components";
+import theme from "../../../../styles/theme.js";
 export const ButtonWrapper = styled.div`
-    display: flex;
-    gap: 10px;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 `;
 
-export const OButton = styled.button`
+export const ApproveButton = styled.button`
     width: 40px;
     height: 40px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.lightmint};
+    color: ${theme.colors.mint};
+    font-size: 24px;
+    font-weight: bold;
     border: none;
-    font-size: 20px;
+    border-radius: 18px;
     cursor: pointer;
+    &:hover {
+        background-color:lightgray;
+    }
 `;
 
-export const XButton = styled.button`
-  width: 40px;
-  height: 40px;
-  background-color: #F44336;
-  color: white;
-  border-radius: 50%;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+export const RejectButton = styled.button`
+    width: 40px;
+    height: 40px;
+    
+    background-color: ${({ theme }) => theme.colors.lightmint};
+    color: ${theme.colors.orange};
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    &:hover {
+        background-color:lightgray;
+    }
 `;

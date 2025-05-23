@@ -20,11 +20,10 @@ export const Background = styled.div`
 `;
 
 export const ScrollableVolunteerList = styled.div`
-    flex: 1;
-    padding: 60px 0 70px 0;
-    height: calc(100vh - 150px); // 정확히 계산
+    height: calc(100vh - 80px);
     overflow-y: scroll;
     width: 85%;
+    padding: 0 0 300px 0;
     cursor: default;
     scrollbar-width: none;
     &::-webkit-scrollbar {
@@ -35,11 +34,7 @@ export const ScrollableVolunteerList = styled.div`
 export const TopWrapper = styled.div`
     position: relative;
     width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 50px 0 0 0;
+    padding: 20px 0 120px 0;
 `;
 
 export const CenteredTitle = styled.div`

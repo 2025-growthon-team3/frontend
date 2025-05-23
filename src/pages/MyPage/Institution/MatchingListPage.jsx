@@ -1,7 +1,8 @@
+// MatchingListPage.jsx
 import TitleBox from "../../../components/TitleBox/TitleBox.jsx";
 import * as M from "./MatchingListPage.styles.js";
-import { useNavigate } from "react-router-dom";
 import MatchingList from "../../../components/MyPage/Institution/MatchingList/MatchingList.jsx";
+import { useNavigate } from "react-router-dom";
 
 const MatchingListPage = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const MatchingListPage = () => {
             <M.Background>
                 <M.TopWrapper>
                     <M.CenteredTitle>
-                        <TitleBox color="mint">온기</TitleBox>
+                        <TitleBox color="mint">Matching</TitleBox>
                     </M.CenteredTitle>
                 </M.TopWrapper>
                 <M.ScrollableVolunteerList id="scrollableDiv">
