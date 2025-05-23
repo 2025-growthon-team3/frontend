@@ -22,8 +22,8 @@ export const Header = styled.div`
 
 // 프로필 이미지
 export const ProfileImage = styled.img`
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     margin-top: 120px;
     border-radius: 50%;
     border: none;
