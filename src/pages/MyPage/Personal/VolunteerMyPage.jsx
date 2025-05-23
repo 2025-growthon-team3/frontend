@@ -19,7 +19,7 @@ const VolunteerMyPage = () => {
       <S.Background>
         <S.ProfileSection>
           <S.ProfileImage src="/img/val.jpg" />
-          <S.UserName>이지연</S.UserName>
+          <S.UserName>김미주</S.UserName> {/* 시연 위해 임시 수정 */}
         </S.ProfileSection>
         <S.MenuCard>
           <S.MenuButton onClick={onClickVolunteerHistory}>

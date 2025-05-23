@@ -17,6 +17,24 @@ export const PageContainer = styled.div`
 //     font-size: 18px;
 //     font-weight: bold;
 // `;
+export const ChatButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #4bc7b9;
+  box-shadow: 0px 2px 2px 0px #d8d8d8;
+
+  width: 64px;
+  height: 35.575px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
 
 export const BottomSection = styled.div`
   flex: 1;

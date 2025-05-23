@@ -25,4 +25,5 @@ export const Container = styled.div`
 export const TextField = styled.input`
   all: unset;
   color: #000;
+  width: 291px;
 `;
