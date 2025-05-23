@@ -40,13 +40,13 @@ export const PercentContainer = styled.div`
 `;
 
 export const PercentBar = styled.div`
-  width: ${({ percent }) => percent}%;
+  width: ${({ $percent }) => $percent}%;
   height: 23px;
 
   border-radius: 20px;
   border: 1px solid #fff;
-  background: ${({ type }) =>
-    type === "songil"
+  background: ${({ $type }) =>
+    $type === "songil"
       ? "linear-gradient(90deg, #f97e55 -3.92%, #ffd7ca 97.7%)"
       : "linear-gradient(90deg, #54cabc -3.92%, #bfeae5 97.7%)"};
 
