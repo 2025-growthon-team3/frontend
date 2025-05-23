@@ -6,7 +6,7 @@ import HelpeeCard from "../HelpeeCard/HelpeeCard.jsx";
 const HelpeeList = () => {
     const [displayList, setDisplayList] = useState([]);
     const [hasMore, setHasMore] = useState(true);
-    const ITEMS_PER_LOAD = 3;
+    const ITEMS_PER_LOAD = 30;
 
     useEffect(() => {
         setDisplayList(volunteers.slice(0, ITEMS_PER_LOAD));

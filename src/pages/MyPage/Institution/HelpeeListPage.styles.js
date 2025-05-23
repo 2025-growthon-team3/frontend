@@ -18,16 +18,12 @@ export const Background = styled.div`
     display: flex;
     align-items: center;
 `;
-export const ScrollableVolunteerList = styled.div.attrs(() => ({
-    id: "scrollableDiv",
-}))`
-    flex-grow: 1;
-    min-height: 0; // ✅ flex + overflow-y 구성에서 중요함
-    overflow-y: auto;
+export const ScrollableVolunteerList = styled.div`
+    height:calc(100vh - 80px);
+    overflow-y: scroll;
     width: 85%;
-    padding: 30px 0 70px 0;
+    padding: 0 0 300px 0;
     cursor: default;
-
     scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
@@ -37,7 +33,7 @@ export const ScrollableVolunteerList = styled.div.attrs(() => ({
 export const TopWrapper = styled.div`
     position: relative;
     width: 100%;
-    padding: 20px 0 30px 0;
+    padding: 20px 0 60px 0;
 `;
 
 export const CenteredTitle = styled.div`
